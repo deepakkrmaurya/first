@@ -47,7 +47,7 @@ const userRegister = async (req, res) => {
         const otp = generateOTP(6);
        const user = await User.findOne({mobile})
        if(!user){
-        var newUser = await new User.create({
+        var newUser = await User.create({
             mobile: mobile,
             otp:otp
         });
@@ -72,7 +72,11 @@ const userRegister = async (req, res) => {
         })
         
     } catch (error) {
-
+        return res.status(500).json({
+            success:false,
+            message:error.message,
+            
+        })
     }
 }
 
