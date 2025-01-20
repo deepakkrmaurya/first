@@ -46,6 +46,7 @@ const userRegister = async (req, res) => {
         }
         const otp = generateOTP(6);
        const user = await User.findOne({mobile})
+       
        if(!user){
         var newUser = await User.create({
             mobile: mobile,
@@ -53,11 +54,11 @@ const userRegister = async (req, res) => {
         });
         await newUser.save();
         const token  = await generateJWTToken(newUser);
-        console.log("token",token)
+        
         return res.status(201).json({
             success:true,
             message:"user register successfully",
-            user:user,
+            user:newUser,
             token : token,
         })
        }
