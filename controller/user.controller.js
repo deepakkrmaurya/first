@@ -85,9 +85,13 @@ const getAllUser = async(req,res)=>{
       try {
         console.log("hello")
         const user = await User.find();
-        
+        return res.send(user)
       } catch (error) {
-        
+        return res.status(500).json({
+            success:false,
+            message:error.message,
+            
+        })
       }
       
 }

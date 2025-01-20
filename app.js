@@ -10,7 +10,7 @@ const corsConfig = {
     Credential:true,
     methods:['GET','POST']
 }
-app.options("",cors(corsConfig))
+// app.options("",cors(corsConfig))
 app.use(cors(corsConfig));
 import userRegister from './routes/user.route.js'
 app.use(`${base}/user`,userRegister);
