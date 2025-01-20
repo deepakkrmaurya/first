@@ -9,12 +9,7 @@
         "src": "/(.*)",
          "dest": "./index.js",
          "methods":["GET","POST"],
-          "helpers":{
-            "Access-Control-Allow-Origin":"*",
-            "Access-Control-Allow-Headers":"*",
-            "Access-Control-Allow-Credentials":true,
-            "Access-Control-Allow-Methods":"*"
-            }
+          
         }
      ]
 }
