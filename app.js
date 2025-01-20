@@ -14,4 +14,8 @@ const corsConfig = {
 app.use(cors(corsConfig));
 import userRegister from './routes/user.route.js'
 app.use(`${base}/user`,userRegister);
+
+app.get('/',(req,res)=>{
+    res.send('server is runing')
+})
 export default app
