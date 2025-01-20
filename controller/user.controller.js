@@ -45,17 +45,15 @@ const userRegister = async (req, res) => {
             return otp;
         }
         const otp = generateOTP(6);
-        console.log('Generated OTP:', otp);
-
        const user = await User.findOne({mobile})
        if(!user){
-        var newUser = await User.create({
+        var newUser = await new User.create({
             mobile: mobile,
             otp:otp
         });
         await newUser.save();
         const token  = await generateJWTToken(newUser);
-
+        console.log("token",token)
         return res.status(201).json({
             success:true,
             message:"user register successfully",
