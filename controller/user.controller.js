@@ -82,8 +82,7 @@ const userRegister = async (req, res) => {
 }
 
 const getAllUser = async(req,res)=>{
-      const user = await User.find();
-      res.send(user)
+      res.send("hello")
 }
 
 export {
