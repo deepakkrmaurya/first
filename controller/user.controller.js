@@ -82,7 +82,14 @@ const userRegister = async (req, res) => {
 }
 
 const getAllUser = async(req,res)=>{
-      res.send("hello")
+      try {
+        console.log("hello")
+        const user = await User.find();
+        
+      } catch (error) {
+        
+      }
+      
 }
 
 export {
